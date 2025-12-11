@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gesture Christmas Tree</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: '#FFD700',
+              'matte-green': '#2E8B57',
+              'xmas-red': '#C41E3A',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              // "Pacifico" matches the thick, flowing Merry Christmas style better
+              'christmas-script': ['"Pacifico"', 'cursive'], 
+            },
+            animation: {
+              'shine': 'shine 3s linear infinite',
+            },
+            keyframes: {
+              shine: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '200% 50%' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body, html { margin: 0; padding: 0; overflow: hidden; background-color: #050505; }
+      canvas { touch-action: none; }
+      
+      /* Sparkling Text Effect */
+      .text-sparkle {
+        background: linear-gradient(
+          to right, 
+          #C41E3A 0%, 
+          #FF0000 30%, 
+          #FFD700 50%, 
+          #FF0000 70%, 
+          #C41E3A 100%
+        );
+        background-size: 200% auto;
+        color: #C41E3A;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 4s linear infinite;
+        text-shadow: 0 0 10px rgba(196, 30, 58, 0.3);
+      }
+      
+      .text-glow-gold {
+        text-shadow: 0 0 5px #FFD700, 0 0 20px rgba(255, 215, 0, 0.5);
+      }
+    </style>
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Load MediaPipe Hands globally -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "@react-three/postprocessing": "https://aistudiocdn.com/@react-three/postprocessing@^3.0.4",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.2",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
